@@ -16,5 +16,71 @@ datasource db {
 model Cliente {
   id    Int    @id @default(autoincrement())
   nome  String
-  email String
+  nomeSocial         String?
+  cpf                String            @unique
+  rgs                RG[]
+  telefones          Telefone[]
+  pets               Pet[]
+  consumoProdutos    ConsumoProduto[]
+  consumoServicos    ConsumoServico[]
+}
+
+model RG {
+  id         Int     @id @default(autoincrement())
+  numero     String
+  clienteId  Int
+  cliente    Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+}
+
+model Telefone {
+  id         Int     @id @default(autoincrement())
+  numero     String
+  clienteId  Int
+  cliente    Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+}
+
+model Pet {
+  id         Int     @id @default(autoincrement())
+  nome       String
+  tipo       String
+  raca       String
+  genero     String
+  clienteId  Int
+  cliente    Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+}
+
+model Produto {
+  id              Int               @id @default(autoincrement())
+  nome            String
+  valor           Decimal
+  consumoProdutos ConsumoProduto[]
+}
+
+model Servico {
+  id               Int                @id @default(autoincrement())
+  nome             String
+  valor            Decimal
+  consumoServicos  ConsumoServico[]
+}
+
+model ConsumoProduto {
+  id         Int       @id @default(autoincrement())
+  clienteId  Int
+  produtoId  Int
+  quantidade Int       @default(1)
+  data       DateTime  @default(now())
+
+  cliente    Cliente   @relation(fields: [clienteId], references: [id])
+  produto    Produto   @relation(fields: [produtoId], references: [id])
+}
+
+model ConsumoServico {
+  id         Int       @id @default(autoincrement())
+  clienteId  Int
+  servicoId  Int
+  quantidade Int       @default(1)
+  data       DateTime  @default(now())
+
+  cliente    Cliente   @relation(fields: [clienteId], references: [id])
+  servico    Servico   @relation(fields: [servicoId], references: [id])
 }
