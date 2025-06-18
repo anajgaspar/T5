@@ -1,0 +1,18 @@
+nav {
+  background-color: #ECF0F1;
+  width: 100%;
+}
+
+#icone-voltar {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.list-group li:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+
+.list-group li:nth-child(even) {
+  background-color: #cfcfcf;
+}
