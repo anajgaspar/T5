@@ -1,7 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Botao from "./Botao";
-
 interface ListagemProps {
     nome: string,
     cpf: string,
@@ -23,7 +21,9 @@ export default function ListagemClientes ({ nome, cpf, telefone }: ListagemProps
                 <a href="/">
                     <img className="img-fluid" src="https://img.icons8.com/?size=100&id=82744&format=png&color=000000" alt="update" width={20}></img>
                 </a>
-                <Botao link="/cliente-pets" conteudo="Ver Pets" />
+                <a href="/cliente">
+                    <img className="img-fluid" src="https://img.icons8.com/?size=100&id=85789&format=png&color=000000" alt="profile" width={20}></img>
+                </a>
             </div>
         </li>
     );

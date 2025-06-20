@@ -25,16 +25,16 @@ export default function Clientes() {
                 </div>
             </div>
             <ul className="list-group container-lg d-flex flex-column gap-2 my-4">
-                <ListagemClientes nome="Lavínia" cpf="123456789" telefone="987654321" />
-                <ListagemClientes nome="João" cpf="987654321" telefone="912345678" />
-                <ListagemClientes nome="Marina" cpf="456789123" telefone="998877665" />
-                <ListagemClientes nome="Thiago" cpf="321654987" telefone="911223344" />
-                <ListagemClientes nome="Beatriz" cpf="789123456" telefone="934561278" />
-                <ListagemClientes nome="Lucas" cpf="159753486" telefone="945612378" />
-                <ListagemClientes nome="Aline" cpf="951357852" telefone="986543210" />
-                <ListagemClientes nome="Caio" cpf="753951456" telefone="923456789" />
-                <ListagemClientes nome="Isadora" cpf="852456789" telefone="912398765" />
-                <ListagemClientes nome="Fernando" cpf="147258369" telefone="909876543" />
+                <ListagemClientes nome="Lavínia Piratello Pansutti dos Anjos" cpf="123.456.789-00" telefone="98765-4321" />
+                <ListagemClientes nome="João Silva Pereira" cpf="425.201.360-73" telefone="91234-5678" />
+                <ListagemClientes nome="Marina Souza Oliveira" cpf="096.049.660-22" telefone="99887-7665" />
+                <ListagemClientes nome="Thiago Lima Santos" cpf="895.598.780-34" telefone="91122-3344" />
+                <ListagemClientes nome="Beatriz Fernandes Almeida" cpf="669.482.030-51" telefone="93456-1278" />
+                <ListagemClientes nome="Lucas Pereira Costa" cpf="840.253.880-06" telefone="94561-2378" />
+                <ListagemClientes nome="Aline Santos Ribeiro" cpf="399.900.290-59" telefone="98654-3210" />
+                <ListagemClientes nome="Caio Lima Moreira" cpf="776.427.200-09" telefone="92345-6789" />
+                <ListagemClientes nome="Isadora Martins Rocha" cpf="736.838.840-53" telefone="91239-8765" />
+                <ListagemClientes nome="Fernando Almeida Cardoso" cpf="313.429.820-10" telefone="90987-6543" />
             </ul>
             {modalVisivel && (
                 <div className="modal-cadastro">

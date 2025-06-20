@@ -1,0 +1,14 @@
+nav {
+  background-color: #ECF0F1;
+  width: 100%;
+}
+
+#icone-voltar {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+#enfase {
+  color: #F39C12;
+}

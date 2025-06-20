@@ -4,16 +4,18 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 interface ListagemProps {
     nome: string,
     raca: string,
-    genero: string
+    genero: string,
+    tipo: string
 }
 
-export default function ListagemPets ({ nome, raca, genero }: ListagemProps) {
+export default function ListagemPets ({ nome, raca, genero, tipo }: ListagemProps) {
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center gap-4 flex-wrap">
             <div className="d-flex flex-column">
-                <strong>{nome}</strong>
-                <small><span className="fw-semibold">Tipo/Raça: </span>{raca}</small>
-                <small><span className="fw-semibold">Gênero: </span>{genero}</small>
+                <p className="mb-1"><strong>Nome:</strong> {nome}</p>
+                <p className="mb-1"><strong>Raça:</strong> {raca}</p>
+                <p className="mb-1"><strong>Gênero:</strong> {genero}</p>
+                <p className="mb-0"><strong>Tipo:</strong> {tipo}</p>
             </div>
             <div className="d-flex gap-4">
                 <a href="/">
