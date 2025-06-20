@@ -12,22 +12,36 @@ nav {
 #titulo {
   margin-top: 58px;
   color: #F39C12;
-  font-weight: bold;
+  font-weight: 500;
 }
 
-form .btn {
+.consumo-section {
+  margin-top: 30px;
+}
+
+.consumo-section h5 {
+  color: #F39C12;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.checkbox-list {
   display: flex;
-  align-items: center;
-  width: fit-content;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#btn-cadastro {
+  width: 100%;
+  margin-top: 18px;
+  border: none;
   background-color: #27AE60;
-  padding: 3px 6px;
   text-decoration: none;
   color: black;
   font-size: small;
   font-weight: 500;
 
   &:hover {
-    background-color: #27AE60;
     opacity: 0.8;
-  }
+  }  
 }

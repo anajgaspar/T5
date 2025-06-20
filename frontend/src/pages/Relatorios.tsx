@@ -16,17 +16,10 @@ export default function Relatorios () {
                             Escolha um relatório:
                         </label>
                         <select id="cliente-select" className="form-select">
-                            <option></option>
-                            <option>
-                                Listagem dos 10 clientes que mais consumiram produtos ou serviços, em
-                                quantidade.
-                            </option>
-                            <option>
-                                Listagem dos 5 clientes que mais consumiram em valor.
-                            </option>
-                            <option selected>
-                                Listagem geral dos serviços ou produtos mais consumidos.
-                            </option>
+                            <option>Selecione...</option>
+                            <option>Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade.</option>
+                            <option>Listagem dos 5 clientes que mais consumiram em valor.</option>
+                            <option>Listagem geral dos serviços ou produtos mais consumidos.</option>
                         </select>
                     </div>
                     <ul className="list-group container-lg d-flex flex-column gap-2 my-4">
