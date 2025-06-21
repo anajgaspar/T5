@@ -1,7 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { 
     registrarPetController, 
-    listarTodosPetsController, 
+    listarTodosPetsController,
+    listarPetPorIdController,
     listarPetsPorClienteController, 
     atualizarPetController, 
     deletarPetController 
@@ -10,7 +11,8 @@ import {
 async function petsRoutes(fastify: FastifyInstance) {
     fastify.post('/', registrarPetController);
     fastify.get('/', listarTodosPetsController);
-    fastify.get('/:id', listarPetsPorClienteController);
+    fastify.get("/pets/:id", listarPetPorIdController);
+    fastify.get("/clientes/:id/pets", listarPetsPorClienteController);
     fastify.put('/:id', atualizarPetController);
     fastify.delete('/:id', deletarPetController);
 };

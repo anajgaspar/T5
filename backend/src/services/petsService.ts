@@ -38,12 +38,24 @@ export async function listarTodosPetsService() {
     }
 }
 
-export async function listarPetsPorClienteService(id: number) {
+export async function listarPetPorIdService(id: number) {
     try {
         const pet = await prisma.pet.findUnique({
             where: { id }
         });
         return pet;
+    } catch (error) {
+        console.error('Erro ao listar pet por ID:', error);
+        throw error;
+    }
+}
+
+export async function listarPetsPorClienteService(clienteId: number) {
+    try {
+        const pets = await prisma.pet.findMany({
+            where: { clienteId }
+        });
+        return pets;
     } catch (error) {
         console.error('Erro ao listar pet:', error);
         throw error;

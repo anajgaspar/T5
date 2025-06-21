@@ -1,7 +1,8 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { 
     registrarPetService, 
-    listarTodosPetsService, 
+    listarTodosPetsService,
+    listarPetPorIdService,
     listarPetsPorClienteService, 
     atualizarPetService, 
     deletarPetService 
@@ -36,10 +37,10 @@ export async function listarTodosPetsController(req: FastifyRequest, reply: Fast
     }
 }
 
-export async function listarPetsPorClienteController(req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) {
+export async function listarPetPorIdController(req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) {
     try {
         const id = Number(req.params.id);
-        const pet = await listarPetsPorClienteService(id);
+        const pet = await listarPetPorIdService(id);
 
         if (!pet) {
             return reply.code(404).send({ error: 'Pet não encontrado' });
@@ -47,7 +48,22 @@ export async function listarPetsPorClienteController(req: FastifyRequest<{ Param
 
         reply.send(pet);
     } catch (error) {
-        reply.code(500).send({ error: 'Erro ao listar pet' });
+        reply.code(500).send({ error: 'Erro ao buscar pet' });
+    }
+}
+
+export async function listarPetsPorClienteController(req: FastifyRequest<{ Params: ParamsType }>, reply: FastifyReply) {
+    try {
+        const clienteId = Number(req.params.id);
+        const pets = await listarPetsPorClienteService(clienteId);
+
+        if (pets.length === 0) {
+            return reply.code(404).send({ error: 'Nenhum pet encontrado para este cliente' });
+        }
+
+        reply.send(pets);
+    } catch (error) {
+        reply.code(500).send({ error: 'Erro ao listar pets por cliente' });
     }
 }
 
