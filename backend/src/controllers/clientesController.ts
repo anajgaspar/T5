@@ -1,8 +1,11 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { registrarClienteService } from "../services/clientesService.js";
-import { listarClientesService, listarClientePeloIdService } from "../services/clientesService.js";
-import { atualizarClientePeloIdService } from "../services/clientesService.js";
-import { deletarClientePeloIdService } from "../services/clientesService.js";
+import { 
+  registrarClienteService, 
+  listarClientesService, 
+  listarClientePeloIdService, 
+  atualizarClientePeloIdService, 
+  deletarClientePeloIdService 
+} from "../services/clientesService.js";
 
 interface ParamsType {
   id: string;

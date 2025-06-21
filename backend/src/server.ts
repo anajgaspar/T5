@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 import clientesRoutes from './routes/clientesRoutes.js';
 import petsRoutes from './routes/petsRoutes.js';
+import produtosRoutes from './routes/produtosRoutes.js';
+import servicosRoutes from './routes/servicosRoutes.js';
 
 dotenv.config();
 
@@ -15,6 +17,8 @@ fastify.register(cors, { origin: '*' });
 
 fastify.register(clientesRoutes, { prefix: '/clientes' });
 fastify.register(petsRoutes, { prefix: '/pets' });
+fastify.register(produtosRoutes, { prefix: '/produtos' });
+fastify.register(servicosRoutes, { prefix: '/servicos' });
 
 const start = async () => {
   try {

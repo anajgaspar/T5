@@ -19,8 +19,8 @@ export async function registrarPetService(dadosPet: {
         });
         return novoPet;
     } catch (error) {
-    console.error('Erro ao registrar pet:', error);
-    throw error;
+        console.error('Erro ao registrar pet:', error);
+        throw error;
   }
 }
 
@@ -45,8 +45,8 @@ export async function listarPetsPorClienteService(id: number) {
         });
         return pet;
     } catch (error) {
-    console.error('Erro ao listar pet:', error);
-    throw error;
+        console.error('Erro ao listar pet:', error);
+        throw error;
   }
 }
 
@@ -63,8 +63,8 @@ export async function atualizarPetService(id: number, novosDadosPet: any) {
         });
         return petAtualizado;
     } catch (error) {
-    console.error('Erro ao atualizar pet:', error);
-    throw error;
+        console.error('Erro ao atualizar pet:', error);
+        throw error;
   }
 }
 
@@ -75,7 +75,7 @@ export async function deletarPetService(id: number) {
         });
         return { message: 'Pet deletado com sucesso!' };
     } catch (error) {
-    console.error('Erro ao deletar pet:', error);
-    throw error;
+        console.error('Erro ao deletar pet:', error);
+        throw error;
   }
 }

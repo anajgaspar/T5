@@ -1,8 +1,11 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { registrarPetService } from "../services/petsService.js";
-import { listarTodosPetsService, listarPetsPorClienteService } from "../services/petsService.js";
-import { atualizarPetService } from "../services/petsService.js";
-import { deletarPetService } from "../services/petsService.js";
+import { 
+    registrarPetService, 
+    listarTodosPetsService, 
+    listarPetsPorClienteService, 
+    atualizarPetService, 
+    deletarPetService 
+} from "../services/petsService.js";
 
 interface ParamsType {
   id: string;
@@ -57,7 +60,7 @@ export async function atualizarPetController(req: FastifyRequest<{ Params: Param
 
         reply.send(pet);
     } catch (error) {
-    reply.code(500).send({ error: 'Erro ao atualizar pet' });
+        reply.code(500).send({ error: 'Erro ao atualizar pet' });
   }
 }
 
@@ -69,6 +72,6 @@ export async function deletarPetController(req: FastifyRequest<{ Params: ParamsT
 
         reply.send(resultado);
     } catch (error) {
-    reply.code(500).send({ error: 'Erro ao deletar pet' });
+        reply.code(500).send({ error: 'Erro ao deletar pet' });
   }
 }
