@@ -15,12 +15,16 @@ export async function registrarClienteService(dadosCliente: {
         nomeSocial: dadosCliente.nomeSocial,
         cpf: dadosCliente.cpf,
         rgs: {
-          create: dadosCliente.rgs.map((rg: any) => ({
-            numero: rg.numero
+          create: dadosCliente.rgs
+          .filter((rg: string) => typeof rg === "string" && rg.trim() !== "")
+          .map((rg: string) => ({
+            numero: rg
           }))
         },
         telefones: {
-          create: dadosCliente.telefones.map((tel: any) => ({
+          create: dadosCliente.telefones
+          .filter((tel: any) => tel.numero && tel.numero.trim() !== "")
+          .map((tel: any) => ({
             numero: tel.numero
           }))
         },

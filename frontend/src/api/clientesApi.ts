@@ -1,17 +1,19 @@
 import { API_URL } from "./api";
 
 type Telefone = {
-    id: number;
-    numero: string;
-    clienteId: number;
+    numero: string
+};
+
+type Rg = {
+  numero: string;
 };
 
 type Cliente = {
-    id: number,
+    id?: number,
     nome: string,
     nomeSocial: string,
     cpf: string,
-    rgs: string[],
+    rgs: Rg[],
     telefones: Telefone[],
     pets: string[]
 }

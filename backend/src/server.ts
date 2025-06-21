@@ -13,7 +13,10 @@ const fastify = Fastify();
 
 const prisma = new PrismaClient();
 
-fastify.register(cors, { origin: '*' });
+fastify.register(cors, {
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+});
 
 fastify.register(clientesRoutes, { prefix: '/clientes' });
 fastify.register(petsRoutes, { prefix: '/pets' });
