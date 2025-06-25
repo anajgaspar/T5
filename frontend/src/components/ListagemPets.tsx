@@ -20,6 +20,9 @@ type Props = {
 export default function ListagemPets ({ pet, onAtualizar, onEditar}: Props) {
     const handleDelete = async () => {
         if (pet.id) {
+            const confirmar = window.confirm("Você tem certeza que deseja excluir este pet?");
+            if (!confirmar) return;
+
             try {
                 await excluirPet(pet.id);
                 onAtualizar();

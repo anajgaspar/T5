@@ -23,7 +23,7 @@ export async function listarServicoPeloId(id: number) {
     return await response.json()
 }
 
-export async function atualizarServicos(servico: Servico, id: number) {
+export async function atualizarServico(servico: Servico, id: number) {
     await fetch(`${API_URL}/servicos/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

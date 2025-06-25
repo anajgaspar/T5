@@ -71,7 +71,7 @@ model ConsumoProduto {
   data       DateTime  @default(now())
 
   cliente    Cliente   @relation(fields: [clienteId], references: [id], onDelete: Cascade)
-  produto    Produto   @relation(fields: [produtoId], references: [id])
+  produto    Produto   @relation(fields: [produtoId], references: [id], onDelete: Cascade)
 }
 
 model ConsumoServico {
@@ -82,5 +82,5 @@ model ConsumoServico {
   data       DateTime  @default(now())
 
   cliente    Cliente   @relation(fields: [clienteId], references: [id], onDelete: Cascade)
-  servico    Servico   @relation(fields: [servicoId], references: [id])
+  servico    Servico   @relation(fields: [servicoId], references: [id], onDelete: Cascade)
 }

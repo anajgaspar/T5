@@ -32,6 +32,9 @@ type Props = {
 export default function ListagemClientes ({ cliente, onAtualizar, onEditar }: Props) {
     const handleDelete = async () => {
         if (cliente.id) {
+            const confirmar = window.confirm("Você tem certeza que deseja excluir este cliente?");
+            if (!confirmar) return;
+
             try {
                 await excluirCliente(cliente.id);
                 onAtualizar();

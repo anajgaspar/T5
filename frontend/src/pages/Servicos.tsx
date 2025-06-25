@@ -1,17 +1,56 @@
-import { useState } from "react";
-import FormCadastroProdutoServico from "../components/FormCadastroProdutoServico";
-import ListagemProdutosServicos from "../components/ListagemProdutosServicos";
+import { useState, useEffect } from "react";
+import FormCadastroServico from "../components/FormCadastroServico";
+import ListagemServicos from "../components/ListagemServicos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../styles/produtosServicos.css";
 import NavbarCompleta from "../components/NavbarCompleta";
+import { listarServicos } from "../api/servicosApi";
+
+type Servico = {
+    id?: number,
+    nome: string,
+    valor: string
+}
 
 export default function Servicos() {
+    const [servicos, setServicos] = useState<Servico[]>([]);
+    const [loading, setLoading] = useState(true);
     const [modalVisivel, setModalVisivel] = useState(false);
+    const [servicoSelecionado, setServicoSelecionado] = useState<Servico | null>(null);
+    const [modoFormulario, setModoFormulario] = useState<"cadastrar" | "atualizar">("cadastrar");
 
-    const abrirModal = () => {
+    useEffect(() => {
+        carregarServicos();
+    }, []);
+
+    async function carregarServicos() {
+        try {
+            setLoading(true);
+            const dados = await listarServicos();
+            setServicos(dados);
+        } catch (error) {
+            console.error("Erro ao carregar serviços:", error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    if (loading) {
+        return <p>Carregando serviços...</p>;
+    }
+
+    const abrirModalCadastro = () => {
+        setModoFormulario("cadastrar");
+        setServicoSelecionado(null);
         setModalVisivel(true);
     };
+
+    const abrirModalAtualizacao = (servico: Servico) => {
+        setModoFormulario("atualizar");
+        setServicoSelecionado(servico);
+        setModalVisivel(true);
+    }
 
     const fecharModal = () => {
         setModalVisivel(false);
@@ -32,20 +71,13 @@ export default function Servicos() {
                 <div id="titulo" className="container-md d-flex justify-content-between align-items-center">
                     <h3>Serviços</h3>
                     <div>
-                        <button id="botao" className="rounded rounded-full" onClick={abrirModal}>Cadastrar Serviço</button>
+                        <button id="botao" className="rounded rounded-full" onClick={abrirModalCadastro}>Cadastrar Serviço</button>
                     </div>
                 </div>
                 <ul className="list-group container-lg d-flex flex-column gap-2 my-4">
-                    <ListagemProdutosServicos nome="Banho e Tosa" valor={80} />
-                    <ListagemProdutosServicos nome="Consulta Veterinária" valor={120} />
-                    <ListagemProdutosServicos nome="Aplicação de Vacina" valor={90} />
-                    <ListagemProdutosServicos nome="Hospedagem (dia)" valor={150} />
-                    <ListagemProdutosServicos nome="Hidratação de Pelagem" valor={70} />
-                    <ListagemProdutosServicos nome="Corte de Unhas" valor={30} />
-                    <ListagemProdutosServicos nome="Limpeza de Ouvidos" valor={40} />
-                    <ListagemProdutosServicos nome="Escovação de Dentes" valor={35} />
-                    <ListagemProdutosServicos nome="Tosa Higiênica" valor={50} />
-                    <ListagemProdutosServicos nome="Acompanhamento Nutricional" valor={100} />
+                    {servicos.map((servico) => (
+                        <ListagemServicos key={servico.id} servico={servico} onAtualizar={carregarServicos} onEditar={abrirModalAtualizacao}/>
+                    ))}
                 </ul>
             </div>
             {modalVisivel && (
@@ -53,7 +85,12 @@ export default function Servicos() {
                     <div className="modal-conteudo">
                         <span className="botao-fechar-modal" onClick={fecharModal}>&times;</span>
                         <h4 style={{ color: '#F39C12' }}>Cadastro de Serviço</h4>
-                        <FormCadastroProdutoServico />
+                        <FormCadastroServico modo={modoFormulario}
+                        servico={servicoSelecionado}
+                        onFinalizar={() => { 
+                            carregarServicos();
+                            fecharModal();
+                        }}/>
                     </div>
                 </div>
             )}
