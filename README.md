@@ -1,7 +1,7 @@
 # Pet Lovers 🐾
->✅ Em desenvolvimento
+>✅ Concluído
 
-Sistema web para gerenciamento de **pet shops** e **clínicas veterinárias**, desenvolvido como parte da atividade prática da disciplina **Técnicas de Programação I**.
+Aplicação web desenvolvida como parte da disciplina **Técnicas de Programação I**, voltada ao gerenciamento de **pet shops** e **clínicas veterinárias**, permitindo maior organização e controle das atividades.
 
 ---
 
@@ -27,7 +27,7 @@ Sistema web para gerenciamento de **pet shops** e **clínicas veterinárias**, d
 ### Pré-requisitos
 - [Node.js](https://nodejs.org/)
 - [MySQL](https://www.mysql.com/)
-- `npm` ou `yarn`
+- `npm` ou `yarn` instalado globalmente
 
 ### 1. Clone o Repositório:
 
@@ -36,7 +36,7 @@ Sistema web para gerenciamento de **pet shops** e **clínicas veterinárias**, d
   ```
 ### 2. Configure o back-end:
 
-##### 1. Acesse a pasta do back-end e instale as dependências:
+##### 1. Em um terminal, acesse a pasta do back-end e instale as dependências:
 
 ```bash
  cd backend
@@ -52,7 +52,7 @@ Sistema web para gerenciamento de **pet shops** e **clínicas veterinárias**, d
 ##### 3. Execute as migrações e gere o Prisma Client:
 
 ```bash
- npx prisma migrate dev --name init
+ npx prisma migrate dev -- --name init
  npx prisma generate
 ```
 
@@ -64,7 +64,7 @@ Sistema web para gerenciamento de **pet shops** e **clínicas veterinárias**, d
 
 ### Configure o Front-end:
 
-##### 1. Acesse a pasta do front-end e instale as dependências:
+##### 1. Em outro terminal, acesse a pasta do front-end e instale as dependências:
 
 ```bash
  cd frontend
