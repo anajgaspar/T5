@@ -5,7 +5,7 @@ import PerfilCliente from './pages/PerfilCliente';
 import Produtos from './pages/ProdutosServicos';
 import Servicos from './pages/Servicos';
 import Consumos from './pages/Consumos';
-// import Relatorios from './pages/Relatorios';
+import Relatorios from './pages/Relatorios';
 
 export default function App() {
     return (       
@@ -17,7 +17,7 @@ export default function App() {
                 <Route path="/produtos" element={< Produtos />} />
                 <Route path="/servicos" element={< Servicos />} />
                 <Route path="/consumos" element={<Consumos />} />
-                {/* <Route path="/relatorios" element={< Relatorios />} /> */}
+                <Route path="/relatorios" element={< Relatorios />} />
             </Routes>
         </BrowserRouter>
     )

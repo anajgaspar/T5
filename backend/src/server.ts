@@ -6,6 +6,8 @@ import clientesRoutes from './routes/clientesRoutes.js';
 import petsRoutes from './routes/petsRoutes.js';
 import produtosRoutes from './routes/produtosRoutes.js';
 import servicosRoutes from './routes/servicosRoutes.js';
+import consumosRoutes from './routes/consumosRoutes.js';
+import relatoriosRoutes from './routes/relatoriosRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +24,8 @@ fastify.register(clientesRoutes, { prefix: '/clientes' });
 fastify.register(petsRoutes, { prefix: '/pets' });
 fastify.register(produtosRoutes, { prefix: '/produtos' });
 fastify.register(servicosRoutes, { prefix: '/servicos' });
+fastify.register(consumosRoutes, { prefix: '/consumos' });
+fastify.register(relatoriosRoutes, { prefix: '/relatorios' });
 
 const start = async () => {
   try {
