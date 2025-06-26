@@ -8,8 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "prisma": "prisma",
-    "migrate": "prisma migrate dev",
-    "generate": "prisma generate"
+    "migrate": "prisma migrate dev --schema=./src/prisma/schema.prisma",
+    "generate": "prisma generate --schema=./src/prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
