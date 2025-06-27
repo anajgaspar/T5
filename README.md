@@ -52,8 +52,7 @@ Aplicação web desenvolvida como parte da disciplina **Técnicas de Programaç�
 ##### 3. Execute as migrações e gere o Prisma Client:
 
 ```bash
- npx prisma migrate dev -- --name init
- npx prisma generate
+ npx prisma migrate dev --schema=./src/prisma/schema.prisma
 ```
 
 ##### 4. Inicie o servidor:
