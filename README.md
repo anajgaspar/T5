@@ -25,7 +25,7 @@ Aplicação web desenvolvida como parte da disciplina **Técnicas de Programaç�
 ## 📋 Guia de Instalação:
 
 ### Pré-requisitos
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) (20.x LTS)
 - [MySQL](https://www.mysql.com/)
 - `npm` ou `yarn` instalado globalmente
 
@@ -33,6 +33,7 @@ Aplicação web desenvolvida como parte da disciplina **Técnicas de Programaç�
 
 ```bash
  git clone https://github.com/anajgaspar/T5.git
+ cd T5
   ```
 ### 2. Configure o back-end:
 
@@ -46,7 +47,7 @@ Aplicação web desenvolvida como parte da disciplina **Técnicas de Programaç�
 ##### 2. Crie o arquivo .env com sua string de conexão:
 
 ```bash
- DATABASE_URL="mysql://usuario:senha@localhost:3306/pet_lovers"
+ DATABASE_URL="mysql://usuario:senha@localhost:3306/pet_lovers
   ```
 
 ##### 3. Execute as migrações e gere o Prisma Client:
