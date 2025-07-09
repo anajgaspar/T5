@@ -1,4 +1,4 @@
-# Pet Lovers 🐾
+# Pet Lovers - Parte V 🐾
 >✅ Concluído
 
 Aplicação web desenvolvida como parte da disciplina **Técnicas de Programação I**, voltada ao gerenciamento de **pet shops** e **clínicas veterinárias**, permitindo maior organização e controle das atividades.
